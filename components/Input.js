@@ -1,6 +1,8 @@
 import { CalendarIcon, ChartBarIcon, EmojiHappyIcon, PhotographIcon, XIcon } from '@heroicons/react/outline';
 import React from 'react'
 import {useRef, useState} from 'react'
+import 'emoji-mart/css/emoji-mart.css'
+import {Picker} from 'emoji-mart'
 
 function Input() {
     const [input, setInput] = useState('');
@@ -9,6 +11,13 @@ function Input() {
     const filePickerRef = useRef();
     const addImageToPost = () => {
 
+    }
+    const addEmoji = (e) => {
+        let sym =e.unified.split('-')
+        let codesArray = []
+        sym.forEach((el) => codesArray.push('0x' + el))
+        let emoji = String.fromCodePoint(...codesArray)
+        setInput(input + emoji)
     }
   return (
     <div className={`
@@ -55,7 +64,25 @@ function Input() {
                         <div className='icon'>
                             <CalendarIcon className='text-[#1d9bf0] h-[22px]' />
                         </div>
+
+                        {showEmojis && (
+                            <Picker 
+                            onSelect={addEmoji}
+                            style={{
+                                position:'absolute',
+                                marginTop:'456px',
+                                marginLeft: -40,
+                                maxWidth: '320px',
+                                borderRadius: '20px',
+                            }}
+                            theme='dark'
+                            />
+                        )}
                     </div>
+
+                    <button className='bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default'>
+                        Tweet
+                    </button>
             </div>
         </div>
     </div>
