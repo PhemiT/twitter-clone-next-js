@@ -37,7 +37,7 @@ function Sidebar() {
         </button>
 
         <div className='text-[#d9d9d9] flex items-center justify-center hoverAnimation xl:ml-auto xl:mr-5 mt-auto'>
-          <img src='' alt='' className='h-10 w-10 rounded-full xl:mr-2.5'/>
+          <img src='https://avatars.githubusercontent.com/u/99820898?v=4' alt='' className='h-10 w-10 rounded-full xl:mr-2.5'/>
           <div className='hidden xl:inline leading-5'>
             <h4 className='font-bold'>Kunmi</h4>
             <p className='text-[#6e767d]'>@phemi_t</p>
