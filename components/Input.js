@@ -12,8 +12,10 @@ import {
   updateDoc,
 } from "@firebase/firestore";
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
+import {useSession} from 'next-auth/react'
 
 function Input() {
+    const {data: session} = useSession()
     const [input, setInput] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
     const [showEmojis, setShowEmojis] = useState(false)
