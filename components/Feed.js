@@ -32,7 +32,7 @@ function Feed() {
         <Input />
         <div className='pb-72'>
           {posts.map(post =>(
-            <Post key='' id='' post={post.data} />
+            <Post key={post.id} id={post.id} post={post.data()} />
           ))}
         </div>
     </div>
