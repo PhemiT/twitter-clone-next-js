@@ -12,6 +12,7 @@ import {
   DotsHorizontalIcon,
 } from '@heroicons/react/outline'
 import {HomeIcon} from '@heroicons/react/solid'
+import { signOut } from "next-auth/react"
 import {useSession} from 'next-auth/react'
 
 function Sidebar() {
@@ -39,11 +40,11 @@ function Sidebar() {
           Tweet   
         </button>
 
-        <div className='text-[#d9d9d9] flex items-center justify-center hoverAnimation xl:ml-auto xl:mr-5 mt-auto '>
-          <img src={session.user.Image} alt='' className='h-10 w-10 rounded-full xl:mr-2.5'/>
+        <div className='text-[#d9d9d9] flex items-center justify-center hoverAnimation xl:ml-auto xl:mr-5 mt-auto ' onClick={signOut}>
+          <img src={session.user.image} alt='' className='h-10 w-10 rounded-full xl:mr-2.5'/>
           <div className='hidden xl:inline leading-5 '>
-            <h4 className='font-bold'>Kunmi</h4>
-            <p className='text-[#6e767d]'>@phemi_t</p>
+            <h4 className='font-bold'>{session.user.name}</h4>
+            <p className='text-[#6e767d]'>@{session.user.tag}</p>
           </div>
           <DotsHorizontalIcon className='h-5 hidden xl:inline ml-10' />
         </div>
