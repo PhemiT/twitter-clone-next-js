@@ -13,7 +13,7 @@ export default function Home({trendingResults, followResults, providers}) {
   const [isOpen, setIsOpen] = useRecoilState(modalState);
 
 
-  //if (!session) return <Login providers={providers}/>
+  if (!session) return <Login providers={providers}/>
   return (
     <div className="">
       <Head>
