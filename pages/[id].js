@@ -98,9 +98,9 @@ import {
   export default PostPage;
   
   export async function getServerSideProps(context) {
-    const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
-      (res) => res.json()
-    );
+    //const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
+    //  (res) => res.json()
+    //);
     const followResults = await fetch("https://jsonkeeper.com/b/KME3").then(
       (res) => res.json()
     );
@@ -109,7 +109,7 @@ import {
   
     return {
       props: {
-        trendingResults,
+        //trendingResults,
         followResults,
         providers,
         session,
