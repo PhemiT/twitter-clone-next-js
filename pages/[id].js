@@ -19,8 +19,10 @@ import {
   import Comment from "../components/Comment";
   import Head from "next/head";
   import Login from '../components/Login'
+  import trendingResults from '../constants/trendingResults.json'
+  import followResults from '../constants/followResults.json'
   
-  function PostPage({ trendingResults, followResults, providers }) {
+  function PostPage({ providers }) {
     const { data: session } = useSession();
     const [isOpen, setIsOpen] = useRecoilState(modalState);
     const [post, setPost] = useState();
@@ -98,19 +100,11 @@ import {
   export default PostPage;
   
   export async function getServerSideProps(context) {
-    //const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
-    //  (res) => res.json()
-   // );
-    //const followResults = await fetch("https://jsonkeeper.com/b/KME3").then(
-    //  (res) => res.json()
-   // );
     const providers = await getProviders();
     const session = await getSession(context);
   
     return {
       props: {
-        //trendingResults,
-        //followResults,
         providers,
         session,
       },
